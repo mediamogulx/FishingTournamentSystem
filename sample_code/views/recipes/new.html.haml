@@ -1,0 +1,44 @@
+-#  This file is app/views/recipes/new.html.haml
+%h1 Submit New Recipes
+=form_tag recipes_path ,multipart: true do
+  %table#ingredients_form{:style=>"width: 480px"}
+    %tr
+      %td
+        Title
+      %td
+        %input#title{:name => "title", :type => "text"}
+    %tr
+      %td
+        Cook Time (minutes)
+      %td
+        %input#cook_time{:name => "cook_time", :type => "number"}
+    %tr
+      %td
+        Directions
+      %td
+        %textarea#directions{:name => "directions"}
+          :preserve
+    %tr
+      %td
+        Main Ingredient
+      %td
+        %input#main_ingredient{:name => "main_ingredient", :type => "text"}
+    %tr
+      %td
+        Side Ingredient
+      %td
+        %input#side_ingredient{:name => "side_ingredient", :type => "text"}
+    %tr
+      %td
+        Image
+      %td
+        = file_field_tag :recipe_image
+    %tr
+      %td
+      %td
+        %input{:type => "submit", :value => "Submit"}
+%table
+  %tr
+    %td
+      =form_tag :root, :method => :get do
+        %input{:type=>"submit", :value => "Back"}

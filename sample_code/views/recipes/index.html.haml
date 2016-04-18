@@ -1,0 +1,25 @@
+-#  This file is app/views/recipes/index.html.haml
+%h1 Search Recipes
+=form_tag recipe_path, :method => :get do
+  %table#ingredients_form{:style=>"width: 480px"}
+    %tr
+      %td
+        Main Ingredient
+      %td
+        %select#main_ingredient{:name => "main_ingredient", :required => "true"}
+          %option{:value => "select"} Select
+          =options_for_select(@main_ingredients)
+    %tr
+      %td
+        Side Ingredient
+      %td
+        %select#side_ingredient{:name => "side_ingredient", :required => "true"}
+          %option{:value => "select"} Select
+          =options_for_select(@side_ingredients)
+    %tr
+      %td
+      %td
+        %input{:type => "submit", :value => "Submit"}
+
+= button_to 'Add Recipe', :new_recipe, :method => :get
+= button_to 'Administrator Login', :administrator_login, :method => :get
