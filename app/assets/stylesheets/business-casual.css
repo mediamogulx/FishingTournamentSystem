@@ -105,6 +105,11 @@ hr {
     margin: 0 auto 0;
 }
 
+.img-social {
+
+    display: inline;
+}
+
 footer {
     background: #fff;
     background: rgba(255,255,255,0.9);

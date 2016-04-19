@@ -1,0 +1,36 @@
+<div class="brand">Fishing Tournament System</div>
+<div class="address-bar">Charleston, SC</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Charity
+                    <strong><%= link_to 'Sign in', page_path('signin'), class: "btn btn-default" %> or <%= link_to 'Register', page_path('register'), class: "btn btn-default" %></strong>
+                </h2>
+                <hr>
+            </div>
+            <div class="col-md-4">
+                <img class="img-responsive img-border-left" src="/assets/charity.jpg" alt="">
+            </div>
+            <div class="col-md-8">
+                <p>Most fishing tournaments are organized to benefit charitable organizations.  Fishing Tournament System (FTS) allows charities to easily find and partner with local fishing organizations, tournaments, and sponsors.</p>
+                <p>FTS provides the capability for tournament organizers to select and prominently feature registered charities for tournaments.  Organizers will be able to reference your charity information page here in FTS.  This will include contact information, charity photos, as well as Internet links to your website so that users can obtain additional information.  When a tournament concludes, information about how much money was raised and how that money has helped the beneficiaries can be added.  Charitable organizations can:</p>
+                <li>Sign up as a charitable organization seeking support of local organizers</li>
+                <li>Pay the necessary fees to register as a tournament beneficiary</li>
+                <li>Receive secure EFT payments for tournament proceeds</li>
+                <li>Obtain information about upcoming fishing tournaments in the area</li>
+                <li>View and tag photos and details about past, present and future tournaments</li>
+                <li>Post photos and details about how the funds raised helped your organization</li>
+                <li>Connect and share on social media</li>
+                <p>Interested?  Register today!</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
