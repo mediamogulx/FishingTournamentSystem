@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424184114) do
+ActiveRecord::Schema.define(version: 20160424203704) do
 
   create_table "Angler", force: :cascade do |t|
     t.integer  "AnglerID"
@@ -192,5 +192,29 @@ ActiveRecord::Schema.define(version: 20160424184114) do
   end
 
   add_index "anglers", ["AnglerID"], name: "index_anglers_on_AnglerID"
+
+  create_table "tournaments", force: :cascade do |t|
+    t.integer  "TournamentID"
+    t.text     "Name",               null: false
+    t.text     "Description"
+    t.text     "StartDt",            null: false
+    t.text     "EndDt",              null: false
+    t.text     "CaptainsMeetingDt"
+    t.string   "CaptainsMeetingLoc"
+    t.string   "EntryFee",           null: false
+    t.integer  "BeneficiaryID"
+    t.integer  "OrganizerID"
+    t.string   "WeighInLoc"
+    t.string   "BanquetLoc"
+    t.text     "BanquetStartDt"
+    t.text     "BanquentEndDt"
+    t.text     "RainDt"
+    t.text     "CreateDt"
+    t.text     "LastUpdateDt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "tournaments", ["TournamentID"], name: "index_tournaments_on_TournamentID"
 
 end
