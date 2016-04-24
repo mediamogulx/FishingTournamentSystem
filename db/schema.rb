@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221061533) do
+ActiveRecord::Schema.define(version: 20160424184114) do
 
   create_table "Angler", force: :cascade do |t|
     t.integer  "AnglerID"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160221061533) do
     t.string   "FirstName",     null: false
     t.string   "MI"
     t.string   "LastName",      null: false
+    t.string   "Email",         null: false
     t.integer  "FishingClubID"
     t.text     "CreateDt"
     t.text     "LastUpdateDt"
@@ -175,5 +176,21 @@ ActiveRecord::Schema.define(version: 20160221061533) do
     t.integer "TournamentID", null: false
     t.integer "PhotoID",      null: false
   end
+
+  create_table "anglers", force: :cascade do |t|
+    t.integer  "AnglerID"
+    t.text     "Type",          null: false
+    t.string   "FirstName",     null: false
+    t.string   "MI"
+    t.string   "LastName",      null: false
+    t.string   "Email",         null: false
+    t.integer  "FishingClubID"
+    t.text     "CreateDt"
+    t.text     "LastUpdateDt"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "anglers", ["AnglerID"], name: "index_anglers_on_AnglerID"
 
 end
