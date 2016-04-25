@@ -63,7 +63,9 @@
                 <% @tournaments.each do |tournament| %>
                     <h2 class="brand-before"><%= tournament.Name %> - <%= tournament.StartDt %></h2>
                     <p><%= tournament.Description %></p>
-                    <p><strong>Event Sponsors: </strong>Charleston Angler, Yeti Coolers, Z-Man Bait, Haddrels Point, K2 Coolers, Penn Rods and Reels</p>
+                    <p><strong>Event Sponsors:</strong> 
+                        <%= get_tournament_sponsors(tournament.TournamentID) %>
+                    </p>
                     <p><strong>Entry Fee: </strong><%= tournament.EntryFee %></p>
                 <% end %>
             </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424232828) do
+ActiveRecord::Schema.define(version: 20160425164658) do
 
   create_table "AnglerPhoto", force: :cascade do |t|
     t.integer "AnglerID", null: false
@@ -154,6 +154,21 @@ ActiveRecord::Schema.define(version: 20160424232828) do
   end
 
   add_index "anglers", ["AnglerID"], name: "index_anglers_on_AnglerID"
+
+  create_table "sponsor_participations", force: :cascade do |t|
+    t.integer "SponsorID",    null: false
+    t.integer "TournamentID", null: false
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.integer "SponsorID"
+    t.string  "Type"
+    t.string  "Name",         null: false
+    t.text    "Description"
+    t.text    "Website"
+    t.text    "CreateDt"
+    t.text    "LastUpdateDt"
+  end
 
   create_table "tournaments", force: :cascade do |t|
     t.integer  "TournamentID"
