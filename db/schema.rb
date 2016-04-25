@@ -11,28 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424203704) do
-
-  create_table "Angler", force: :cascade do |t|
-    t.integer  "AnglerID"
-    t.text     "Type",          null: false
-    t.string   "FirstName",     null: false
-    t.string   "MI"
-    t.string   "LastName",      null: false
-    t.string   "Email",         null: false
-    t.integer  "FishingClubID"
-    t.text     "CreateDt"
-    t.text     "LastUpdateDt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "Angler", ["AnglerID"], name: "index_Angler_on_AnglerID"
-
-  create_table "AnglerParticipation", force: :cascade do |t|
-    t.integer "TournamentID", null: false
-    t.integer "AnglerID",     null: false
-  end
+ActiveRecord::Schema.define(version: 20160424232828) do
 
   create_table "AnglerPhoto", force: :cascade do |t|
     t.integer "AnglerID", null: false
@@ -150,31 +129,14 @@ ActiveRecord::Schema.define(version: 20160424203704) do
     t.integer "PhotoID",   null: false
   end
 
-  create_table "Tournament", force: :cascade do |t|
-    t.integer  "TournamentID"
-    t.text     "StartDt",            null: false
-    t.text     "EndDt",              null: false
-    t.text     "CaptainsMeetingDt"
-    t.string   "CaptainsMeetingLoc"
-    t.string   "EntryFee",           null: false
-    t.integer  "BeneficiaryID"
-    t.integer  "OrganizerID"
-    t.string   "WeighInLoc"
-    t.string   "BanquetLoc"
-    t.text     "BanquetStartDt"
-    t.text     "BanquentEndDt"
-    t.text     "RainDt"
-    t.text     "CreateDt"
-    t.text     "LastUpdateDt"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  add_index "Tournament", ["TournamentID"], name: "index_Tournament_on_TournamentID"
-
   create_table "TournamentPhoto", force: :cascade do |t|
     t.integer "TournamentID", null: false
     t.integer "PhotoID",      null: false
+  end
+
+  create_table "angler_participations", force: :cascade do |t|
+    t.integer "TournamentID", null: false
+    t.integer "AnglerID",     null: false
   end
 
   create_table "anglers", force: :cascade do |t|

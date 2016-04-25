@@ -16,24 +16,52 @@
                 <img class="img-responsive img-border-left" src="/assets/PhilAndTheShark.JPG" alt="">
             </div>
             <div class="col-md-6">
+                <p>Angler ID: <strong><%= @anglerID %></strong></p>
                 <p>Email Address: <strong><%= @anglerEmail %></strong></p>
-                <p>Upcoming Tournaments:</p>
-                <table>
+                <hr>
+                <h2 class="intro-text text-center">Upcoming Tournaments</h2>
+                <hr>
+                <table class="table">
                     <tr>
-                        <th>Register</th>
+                        <th>Link</th>
                         <th>Name</th>
                         <th>Date</th>
                         <th>Cost</th>
-                        <th>Captains Meeting</th>
+                        <th>Captains Meeting Info</th>
                     </tr>
-                    <% @tournaments.each do |tournament| %>
+                    <% @unregisteredTournaments.each do |tournament| %>
                         <tr>
-                            <td><%= link_to 'Register', page_path('register') %></td>
+                            <td><%= link_to 'View',  new_angler_path(:id => tournament.TournamentID) %></td>
                             <td><%= tournament.Name %></td>
                             <td><%= tournament.StartDt %></td>
                             <td><%= tournament.EntryFee %></td>
                             <td><%= tournament.CaptainsMeetingLoc %></td>
                             <td><%= tournament.CaptainsMeetingDt %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <hr>
+                <h2 class="intro-text text-center">Registered Tournaments</h2>
+                <hr>
+                <table class="table">
+                    <tr>
+                        <th>Link</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Cost</th>
+                        <th>Captains Meeting Info</th>
+                    </tr>
+                    <% @registrations.each do |registration| %>
+                        <tr>
+                            <td><%= link_to 'View',  new_angler_path(:id => registration.TournamentID) %></td>
+                            <td><%= registration.Name %></td>
+                            <td><%= registration.StartDt %></td>
+                            <td><%= registration.EntryFee %></td>
+                            <td><%= registration.CaptainsMeetingLoc %></td>
+                            <td><%= registration.CaptainsMeetingDt %></td>
+                        </tr>
                         </tr>
                     <% end %>
                 </table>
