@@ -57,16 +57,15 @@
         <div class="box">
             <div class="col-lg-12">
                 <hr>
-                <h2 class="intro-text text-center">Upcoming
-                    <strong>Tournaments</strong>
+                <h2 class="intro-text text-center">Upcoming <strong>Tournaments</strong>
                 </h2>
                 <hr>
-                <h2 class="brand-before">Spring Fling - May 7, 2016</h2>
-                <p>Register today.  Proceeds benefit St. Jude's Hospital</p>
-                <p>Event Sponsors: Charleston Angler, Yeti Coolers, Z-Man Bait</p>
-                <h2 class="brand-before">Kings for Vets - June 4, 2016</h2>
-                <p>This tournament is to benefit retired veterans.  Veterans and Captains sign up. Unpaired Captains will be paired with veterans for a day of fishing king mackerel.  Proceeds benefit The Wounded Warrior Project.</p>
-                <p>Event Sponsors: Haddrels Point, K2 Coolers, Penn Rods and Reels</p>
+                <% @tournaments.each do |tournament| %>
+                    <h2 class="brand-before"><%= tournament.Name %> - <%= tournament.StartDt %></h2>
+                    <p><%= tournament.Description %></p>
+                    <p><strong>Event Sponsors: </strong>Charleston Angler, Yeti Coolers, Z-Man Bait, Haddrels Point, K2 Coolers, Penn Rods and Reels</p>
+                    <p><strong>Entry Fee: </strong><%= tournament.EntryFee %></p>
+                <% end %>
             </div>
         </div>
     </div>

@@ -8,37 +8,32 @@ class AnglerController < ApplicationController
         @anglerID = @angler.first.AnglerID
         
         #load registered tournaments
-        @anglerParticipation = AnglerParticipation.all
+        @anglerParticipation = AnglerParticipation.where(AnglerID: @anglerID)
         @registrations = []
-        #@anglerParticipation.each do |participation|
-        #    if participation.AnglerID = @anglerID
-        #        Tournament.find_by(TournamentID: participation.TournamentID))
-        #    end
-        #end
        
        #load registered and unregistered tournaments
         @tournaments = Tournament.all
         @unregisteredTournaments = []
         @tournaments.each do |tournament|
-            if @anglerParticipation == []
+            if @anglerParticipation.empty?
                 @unregisteredTournaments.push(tournament)
             else
+                registered = false
                 @anglerParticipation.each do |participation|
-                    if tournament.TournamentID == participation.TournamentID and participation.AnglerID == @anglerID
+                    if tournament.TournamentID == participation.TournamentID
                         @registrations.push(tournament)
-                    else
-                        @unregisteredTournaments.push(tournament)
+                        registered = true
                     end
                 end
             end
+            if not registered
+                @unregisteredTournaments.push(tournament)
+            end
         end
+        @unregisteredTournaments = @unregisteredTournaments.uniq
     end
     
     def new
-        redirect_to signup_index_path(:aid => 1, :tid => params[:id])
-    end
-    
-    def render_registration_link
-       link_to 'Register',  new_angler_path(:id => tournament.TournamentID) 
+        redirect_to tournament_index_path(:aid => 1, :tid => params[:id])
     end
 end
