@@ -1,7 +1,7 @@
 class CreateTournament < ActiveRecord::Migration
   def change
     create_table :tournaments do |t|
-      t.integer :TournamentID, index: true, primary_key: true
+      t.integer :TournamentID, index: true
       t.text    :Name, null: false
       t.text    :Description
       t.text    :StartDt, null: false
@@ -9,8 +9,8 @@ class CreateTournament < ActiveRecord::Migration
       t.text    :CaptainsMeetingDt
       t.string  :CaptainsMeetingLoc
       t.string  :EntryFee, null: false
-      t.integer :BeneficiaryID, foreign_key: true
-      t.integer :OrganizerID, foreign_key: true
+      t.integer :BeneficiaryID
+      t.integer :OrganizerID
       t.string  :WeighInLoc
       t.string  :BanquetLoc
       t.text    :BanquetStartDt

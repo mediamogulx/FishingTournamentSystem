@@ -1,7 +1,7 @@
 class CreateSponsor < ActiveRecord::Migration
   def change
     create_table :sponsors do |t|
-      t.integer :SponsorID, primary_key: true
+      t.integer :SponsorID
       t.string  :Type
       t.string  :Name, null: false
       t.text    :Description

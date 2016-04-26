@@ -1,11 +1,11 @@
 class CreateCategory < ActiveRecord::Migration
   def change
     create_table :categories do |t|
-      t.integer :CategoryID, primary_key: true
-      t.integer :TournamentID, foreign_key: true, null: false
-      t.integer :AnglerID, foreign_key: true
-      t.integer :PrizeID, foreign_key: true
-      t.integer :FishID, foreign_key: true
+      t.integer :CategoryID
+      t.integer :TournamentID, null: false
+      t.integer :AnglerID
+      t.integer :PrizeID
+      t.integer :FishID
       t.string  :Name
       t.text    :Description
       t.text    :CreateDt
