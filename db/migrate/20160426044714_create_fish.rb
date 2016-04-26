@@ -1,6 +1,6 @@
 class CreateFish < ActiveRecord::Migration
   def change
-    create_table :Fish do |t|
+    create_table :fish do |t|
       t.integer :FishID, primary_key: true
       t.integer :TournamentID, foreign_key: true, null: false
       t.integer :AnglerID, foreign_key: true, null: false

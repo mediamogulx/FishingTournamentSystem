@@ -1,6 +1,6 @@
 class CreatePhoto < ActiveRecord::Migration
   def change
-    create_table :Photo do |t|
+    create_table :photos do |t|
       t.integer :PhotoID, primary_key: true
       t.binary  :Photo, null: false
       t.text    :Description

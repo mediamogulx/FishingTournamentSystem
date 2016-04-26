@@ -1,7 +1,6 @@
-class CreateOrganizer < ActiveRecord::Migration
+class CreateFishingClub < ActiveRecord::Migration
   def change
-    create_table :Organizer do |t|
-      t.integer :OrganizerID, primary_key: true
+    create_table :fishing_clubs do |t|
       t.integer :FishingClubID, foreign_key: true
       t.string  :Name, null: false
       t.text    :Description

@@ -1,6 +1,6 @@
 class CreateCategory < ActiveRecord::Migration
   def change
-    create_table :Category do |t|
+    create_table :categories do |t|
       t.integer :CategoryID, primary_key: true
       t.integer :TournamentID, foreign_key: true, null: false
       t.integer :AnglerID, foreign_key: true

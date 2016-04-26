@@ -1,6 +1,6 @@
 class CreatePrize < ActiveRecord::Migration
   def change
-    create_table :Prize do |t|
+    create_table :prizes do |t|
       t.integer :PrizeID, primary_key: true
       t.integer :TournamentID, foreign_key: true, null: false
       t.integer :AnglerID, foreign_key: true
@@ -10,8 +10,6 @@ class CreatePrize < ActiveRecord::Migration
       t.integer :PhotoID, foreign_key: true
       t.text    :CreateDt
       t.text    :LastUpdateDt
-
-      t.timestamps null: false
     end
   end
 end

@@ -1,6 +1,6 @@
 class CreateBeneficiary < ActiveRecord::Migration
   def change
-    create_table :Beneficiary do |t|
+    create_table :beneficiaries do |t|
       t.integer :BeneficiaryID, foreign_key: true
       t.string  :Name, null: false
       t.text    :Description
